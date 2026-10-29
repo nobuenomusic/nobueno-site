@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Fun – No Bueno</title>
+<meta name="description" content="Fun von No Bueno: Snake und Fernseher.">
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="snake-page fun-merged">
+<div class="fun-top">
+<header class="snake-top"><a class="logo-sticker" href="index.html" aria-label="No Bueno, zur Startseite"><img src="assets/sticker.webp" width="420" height="363" alt="No Bueno"></a><a class="mono snake-back" href="index.html">← zurück zur Startseite</a></header>
+<div class="wrap fun-wrap">
+  <span class="mono">Gönn dir</span>
+  <h1 class="big-title fun-title">Fun.</h1>
+  <p class="tv-lead fun-intro">Öfters mal was Neues.<br>Schau ab und zu rein.</p>
+</div>
+</div>
+
+<!-- ============ SNAKE ============ -->
+<section class="snake-sec" id="snake" aria-labelledby="snake-title">
+  <div class="wrap snake-grid">
+    <div class="snake-copy">
+      <h2 class="big-title" id="snake-title">
+        <span class="ln"><span class="ln-in" style="--i:0">Snake</span></span>
+        <span class="ln"><span class="ln-in" style="--i:1">Bueno.</span></span>
+      </h2>
+      <p class="tv-lead">Friss die CDs, werd nicht zu lang. Steuern mit Pfeiltasten, am Handy einfach wischen.</p>
+      <p class="snake-best mono">Rekord: <b id="snake-best-out">0</b></p>
+    </div>
+    <div class="snake-stage">
+      <div class="w95 snake-win">
+        <div class="w95-bar"><span class="t">snake.exe</span><span class="w95-ctrl" aria-hidden="true"><span>_</span><span>×</span></span></div>
+        <div class="w95-body">
+          <div class="snake-hud mono" aria-live="off">
+            <span>Punkte <b id="snake-score">0</b></span>
+            <button type="button" class="b95" id="snake-mute" aria-pressed="false">Ton: an</button>
+          </div>
+          <div class="snake-board">
+            <canvas id="snake-cv" width="360" height="360" tabindex="0" aria-label="Snake-Spielfeld. Steuerung mit Pfeiltasten."></canvas>
+            <div class="snake-ov" id="snake-ov">
+              <b id="snake-ov-title">bereit?</b>
+              <span id="snake-ov-sub">Pfeiltaste oder wischen zum Start</span>
+              <button type="button" class="b95" id="snake-go">Spielen</button>
+            </div>
+          </div>
+          <div class="snake-pad" aria-label="Steuerkreuz">
+            <button type="button" data-dir="up" aria-label="hoch">▲</button>
+            <button type="button" data-dir="left" aria-label="links">◀</button>
+            <button type="button" data-dir="down" aria-label="runter">▼</button>
+            <button type="button" data-dir="right" aria-label="rechts">▶</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NO SWEEPER ============ -->
+<section class="sweep-sec" id="nosweeper" aria-labelledby="sweep-title">
+  <div class="wrap snake-grid">
+    <div class="snake-copy">
+      <h2 class="big-title" id="sweep-title">
+        <span class="ln"><span class="ln-in" style="--i:0">No</span></span>
+        <span class="ln"><span class="ln-in" style="--i:1">Sweeper.</span></span>
+      </h2>
+      <p class="tv-lead">Finde die Platten, bevor sie dich finden. Rechtsklick setzt eine Flagge, am Handy langes Drücken oder der Schalter unter dem Feld.</p>
+      <p class="snake-best mono">Beste Zeit: <b id="sw-best">–</b></p>
+    </div>
+    <div class="snake-stage">
+      <div class="w95 sweep-win">
+        <div class="w95-bar"><span class="t">nosweeper.exe</span><span class="w95-ctrl" aria-hidden="true"><span>×</span></span></div>
+        <div class="w95-body">
+          <div class="sw-levels" role="group" aria-label="Schwierigkeit">
+            <button type="button" class="b95" data-sw-level="leicht" aria-pressed="true">Leicht</button>
+            <button type="button" class="b95" data-sw-level="mittel" aria-pressed="false">Mittel</button>
+            <button type="button" class="b95" data-sw-level="schwer" aria-pressed="false">Schwer</button>
+          </div>
+          <div class="sw-hud">
+            <span class="sw-led" id="sw-count" aria-label="Minen übrig">010</span>
+            <button type="button" class="b95 sw-face" id="sw-face" aria-label="Neues Spiel">:)</button>
+            <span class="sw-led" id="sw-time" aria-label="Zeit">000</span>
+          </div>
+          <div class="sw-wrap"><div class="sw-board" id="sw-board" role="grid" aria-label="No-Sweeper-Spielfeld"></div></div>
+          <div class="sw-foot">
+            <button type="button" class="b95" id="sw-mode" aria-pressed="false">Modus: Aufdecken</button>
+          </div>
+          <p class="sw-status mono" id="sw-status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TV ============ -->
+<section class="tv-sec" id="tv" aria-labelledby="tv-title">
+  <div class="wrap tv-grid">
+    <div class="tv-copy">
+      <span class="mono">Sendebetrieb</span>
+      <h2 class="big-title" id="tv-title" data-lines>
+        <span class="ln"><span class="ln-in" style="--i:0">Läuft.</span></span>
+      </h2>
+      <p class="tv-lead reveal reveal--soft">TV einschalten, Kopf ausschalten. Gönn dir bizli Nostalgia.</p>
+      <a class="tv-yt b95" id="tv-yt" href="#" target="_blank" rel="noopener" hidden>Auf YouTube ansehen ↗</a>
+    </div>
+
+    <div class="px" data-speed="0.03">
+      <div class="tv reveal reveal--pop" id="crt" data-state="off">
+        <div class="tv-body">
+          <div class="tv-bezel">
+            <div class="tv-screen" id="tv-screen">
+              <canvas id="tv-noise" width="160" height="120" aria-hidden="true"></canvas>
+              <div class="tv-bars" id="tv-bars" aria-hidden="true"><span id="tv-bars-msg">NO SIGNAL</span><i class="l" id="tv-bars-clock">00:00</i><i class="r">00-00-00</i></div>
+              <div class="tv-frame" id="tv-frame"></div>
+              <div class="tv-osd" id="tv-osd" aria-hidden="true"></div>
+              <button class="tv-start" type="button" id="tv-start">Einschalten ▶</button>
+              <div class="tv-glass" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="tv-side">
+            <span class="tv-brand" aria-hidden="true">NO BUENO</span>
+            <span class="tv-led" aria-hidden="true"></span>
+            <div class="tv-knobs">
+              <button class="knob" type="button" id="tv-power" aria-pressed="false" aria-label="Fernseher ein- oder ausschalten"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5.6a8 8 0 1 0 9.6 0"/><path d="M12 2.8v8.4"/></svg></button>
+              <button class="knob" type="button" id="tv-ch" aria-label="Nächster Kanal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5l8 6.5-8 6.5z"/><path d="M18.5 5v14"/></svg></button>
+            </div>
+            <div class="tv-labels mono" aria-hidden="true"><span>POWER</span><span>KANAL</span></div>
+            <div class="tv-grille" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="tv-feet" aria-hidden="true"><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="stay">
+  <div class="wrap">
+    <div class="foot-links mono">
+      <ul>
+        <li><a class="ig-ico" href="https://www.instagram.com/no.bueno.music" rel="noopener" aria-label="Instagram: @no.bueno.music" title="@no.bueno.music"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"/></svg></a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+      <span>© <span id="year">2026</span> No Bueno</span>
+    </div>
+  </div>
+</footer>
+
+<div class="w95 toast" id="toast" role="status" aria-live="polite" hidden>
+  <div class="w95-bar"><span class="t" id="toast-title">fehler.exe</span><button class="x" type="button" id="toast-x" aria-label="Schliessen">×</button></div>
+  <div class="w95-body">
+    <div class="row"><span class="info" aria-hidden="true">!</span><p id="toast-msg"></p></div>
+    <div class="btns"><a class="b95" id="toast-ok" href="#kontakt">ok</a></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="snake.js"></script>
+<script src="nosweeper.js"></script>
+</body>
+</html>
