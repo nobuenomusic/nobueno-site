@@ -884,3 +884,9 @@ body.legal .snake-top { justify-content: flex-start; }
   .mq-track { animation: none; flex-wrap: wrap; min-width: 0; }
   .mq-track[aria-hidden="true"] { display: none; }
 }
+
+/* v61.3: Browser-Dunkelmodus (Force Dark) ausschalten, Seite bleibt immer hell */
+:root{color-scheme:only light}
+
+/* v61.3: kein seitliches Wackeln auf dem Handy (rotierte Baender ragen sonst ueber den Rand) */
+html, body { overflow-x: clip; max-width: 100%; }
