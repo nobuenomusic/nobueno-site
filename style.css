@@ -890,3 +890,89 @@ body.legal .snake-top { justify-content: flex-start; }
 
 /* v61.3: kein seitliches Wackeln auf dem Handy (rotierte Baender ragen sonst ueber den Rand) */
 html, body { overflow-x: clip; max-width: 100%; }
+
+/* v62: Garten Run */
+.run-sec { position: relative; padding: 4.5rem 0 5rem; background: var(--sky); overflow: hidden; border-top: 3px solid var(--ink); scroll-margin-top: 0; }
+.run-win { width: min(100%, 440px); }
+.run-board { position: relative; border: 3px solid var(--ink); background: #9ccbe8; line-height: 0; overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.run-board canvas { width: 100%; height: auto; aspect-ratio: 3 / 4; display: block; touch-action: none; outline: none; -webkit-tap-highlight-color: transparent; }
+.run-ov { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: .8rem; text-align: center; line-height: 1.3; background: rgba(17, 17, 17, .72); color: #fff; font-family: var(--pixel); }
+.run-ov[hidden] { display: none; }
+.run-ov b { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: .02em; color: var(--lime); }
+.run-pick { display: flex; flex-direction: column; align-items: center; gap: .9rem; width: 100%; }
+.run-pick > b { font-size: clamp(2rem, 9vw, 2.8rem); }
+.run-chars { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; width: 100%; }
+.run-chars button { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: .35rem; padding: .5rem .2rem .4rem; background: var(--lilac); border: 2px solid; border-color: #fff var(--lilac-d) var(--lilac-d) #fff; outline: 2px solid var(--ink); color: var(--ink); font-size: .72rem; line-height: 1.1; }
+.run-chars button img { height: clamp(70px, 24vw, 104px); width: auto; image-rendering: pixelated; display: block; }
+.run-chars button:hover, .run-chars button:focus-visible, .run-chars button.is-last { background: var(--lime); }
+.run-chars button:active { border-color: var(--lilac-d) #fff #fff var(--lilac-d); }
+.run-over { display: flex; flex-direction: column; align-items: center; gap: .45rem; width: 100%; }
+.run-over .mono { font-size: .72rem; opacity: .9; }
+.run-o-year { font-size: clamp(3.4rem, 17vw, 5rem); line-height: 1; }
+.run-o-stats b { color: var(--lime); font-size: 1rem; background: none; }
+.run-o-party { font-size: .9rem; background: var(--paper); color: var(--ink); padding: .4rem .7rem; border: 2px solid var(--ink); rotate: -1.5deg; box-shadow: 3px 3px 0 var(--brand); }
+.run-btns { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-top: .3rem; }
+.run-btns .b95 { min-width: 0; padding-inline: .7rem; }
+.run-share-msg { min-height: 1.2em; }
+.run-pause { display: flex; flex-direction: column; gap: .5rem; align-items: center; }
+.run-pause[hidden] { display: none; }
+.run-pause b { font-size: 2.6rem; }
+.run-ticket { display: grid; gap: .1rem; width: min(100%, 22rem); margin: 1.8rem auto 0; padding: .9rem 1.1rem 1rem; background: var(--paper); border: 3px dashed var(--ink); rotate: -1.5deg; box-shadow: 5px 5px 0 var(--brand); }
+.run-t-k { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.run-t-h { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1; text-transform: uppercase; }
+.run-t-l { font-weight: 600; }
+.run-t-s { font-size: .78rem; margin-top: .35rem; }
+.fun-merged .run-sec { border-top: 3px solid var(--ink); }
+
+/* v62: Back-to-the-Hits-Logo (Original, nicht verpixelt) */
+.run-o-logo, .run-t-logo { height: auto; }
+.run-o-logo { width: 112px; max-width: 40%; margin-bottom: .1rem; }
+.run-t-logo { width: 170px; max-width: 60%; margin: .3rem auto .2rem; }
+
+/* v62j: ruhigere Schrift in Overlays und Karte (statt Pixel-Schrift) */
+.run-ov { font-family: 'Archivo', system-ui, sans-serif; }
+.run-ov .b95, .run-btns .b95 { font-family: 'Archivo', system-ui, sans-serif; font-weight: 700; }
+.run-o-party, .run-t-l { font-family: 'Archivo', system-ui, sans-serif; }
+.run-pick > b, .run-pause b { font-family: var(--display); }
+
+/* v62k: Startbildschirm mit Pixel-Logo */
+.run-s-logo { width: 104px; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; }
+.run-s-tag { font-size: .8rem; line-height: 1.3; letter-spacing: .01em; }
+.run-pick { gap: .6rem; }
+.run-pick > b { font-size: clamp(1.7rem, 7.5vw, 2.3rem); }
+.run-chars button span { text-align: center; min-height: 2.2em; display: flex; align-items: flex-end; justify-content: center; }
+
+/* v62m: Startbildschirm und Game-Over-Karte */
+.run-s-logo { width: 176px; image-rendering: auto; }
+.run-s-tag { font-size: 1.02rem; font-weight: 600; line-height: 1.3; }
+.run-pick > b { font-size: clamp(1.25rem, 5.2vw, 1.6rem); }
+.run-o-logo { width: 156px; max-width: 52%; }
+.run-o-line { font-size: 1.15rem; font-weight: 700; line-height: 1.25; }
+.run-o-line b { color: var(--lime); font-family: var(--display); font-weight: 400; font-size: 1.5rem; letter-spacing: .02em; text-transform: none; }
+.run-over { gap: .6rem; }
+
+.run-s-logo { width: 150px; }
+.run-s-tag { display: flex; flex-direction: column; gap: .1rem; font-size: 1rem; }
+.run-s-t1 { font-size: 1.2rem; font-weight: 800; }
+.run-s-t2 { font-size: .84rem; font-weight: 600; white-space: nowrap; }
+.run-pick { gap: .5rem; }
+.run-chars button img { height: clamp(58px, 19vw, 86px); }
+
+/* v62n: mehr Luft auf der Game-Over-Karte */
+.run-over { height: 100%; justify-content: space-evenly; gap: 0; padding: .6rem 0; }
+.run-o-logo { width: 178px; max-width: 56%; }
+.run-o-party { font-size: 1rem; padding: .65rem 1rem; }
+.run-o-line { font-size: 1.2rem; }
+.run-btns { margin-top: 0; gap: .5rem; }
+.run-o-party { white-space: nowrap; font-size: clamp(.8rem, 3.7vw, 1rem); padding: .6rem .9rem; }
+.run-o-logo { width: clamp(140px, 46vw, 178px); }
+.run-btns .b95 { font-size: clamp(.82rem, 3.6vw, 1rem); padding-inline: .55rem; }
+.run-btns { flex-wrap: nowrap; }
+
+/* v62r: eigene Seite /run + Hinweis auf der Game-over-Karte */
+.run-o-cta { display: block; max-width: 92%; padding: .45rem .6rem; background: var(--lime); color: var(--ink); border: 2px solid var(--ink); font-family: var(--body, inherit); font-weight: 700; font-size: clamp(.68rem, 3vw, .82rem); line-height: 1.25; }
+.run-page .run-sec { border-top: 0; padding-top: 1.5rem; }
+.run-page .run-top { background: var(--sky); }
+
+/* v62w: Spiel-Leiste nur mit Ton-Button (Titel steht schon oben) */
+.run-win .snake-hud { justify-content: flex-end; }

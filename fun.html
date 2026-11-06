@@ -7,7 +7,7 @@
 <meta name="supported-color-schemes" content="light">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Fun – No Bueno</title>
-<meta name="description" content="Fun von No Bueno: Snake und Fernseher.">
+<meta name="description" content="Fun von No Bueno: Gerolds Garten Run, Snake, No Sweeper und Fernseher.">
 <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css">
@@ -21,6 +21,64 @@
   <p class="tv-lead fun-intro">Öfters mal was Neues.<br>Schau ab und zu rein.</p>
 </div>
 </div>
+
+<!-- ============ GARTEN RUN ============ -->
+<section class="run-sec" id="garten-run" aria-labelledby="run-title">
+  <div class="wrap snake-grid">
+    <div class="snake-copy">
+      <h2 class="big-title" id="run-title">
+        <span class="ln"><span class="ln-in" style="--i:0">Gerolds</span></span>
+        <span class="ln"><span class="ln-in" style="--i:1">Garten</span></span>
+        <span class="ln"><span class="ln-in" style="--i:2">Run.</span></span>
+      </h2>
+      <p class="tv-lead">Back to the Hits, Baby! Sammle CDs und spring über all die Boxen, Nokias und Tamagotchis. Je weiter du rennst, desto mehr Back to the Hits. Schaffst du's zurück in die 80er?</p>
+      <p class="tv-lead">Mach ein Screenshot von deinem Highscore und komm am 14.11. im Gerolds Garten beim DJ-Pult vorbei. Für die ersten 10 gibt es eine kleine Überraschung.</p>
+      <p class="snake-best mono">Rekord: <b id="run-best">0</b> CDs</p>
+    </div>
+    <div class="snake-stage">
+      <div class="w95 run-win">
+        <div class="w95-bar"><span class="t">gerolds-garten-run.exe</span><span class="w95-ctrl" aria-hidden="true"><span>_</span><span>×</span></span></div>
+        <div class="w95-body">
+          <div class="snake-hud mono"><button type="button" class="b95" id="run-mute" aria-pressed="false">Ton: an</button></div>
+          <div class="run-board">
+            <canvas id="run-cv" tabindex="0" aria-label="Gerolds Garten Run, ein Spiel: tippen oder Leertaste zum Springen."></canvas>
+            <div class="run-ov" id="run-ov">
+              <div class="run-pick" id="run-select">
+                <img class="run-s-logo" src="assets/run/btth-logo.webp" width="540" height="428" alt="Back to the Hits">
+                <span class="run-s-tag"><span class="run-s-t1">Das Game zur Party</span><span class="run-s-t2">Hol dir die Hits am 14.11. im Gerolds Garten</span></span>
+                <b>Choose your DJ</b>
+                <div class="run-chars">
+                  <button type="button" data-run-char="bowgli" aria-label="DJ Bowgli"><img src="assets/run/bowgli.webp" width="52" height="112" alt=""><span>DJ Bowgli</span></button>
+                  <button type="button" data-run-char="stranger" aria-label="Marvellous Stranger"><img src="assets/run/stranger.webp" width="43" height="112" alt=""><span>Marvellous Stranger</span></button>
+                  <button type="button" data-run-char="nobueno" aria-label="No Bueno, beide zusammen"><img src="assets/run/nobueno.webp" width="82" height="112" alt=""><span>No Bueno</span></button>
+                </div>
+              </div>
+              <div class="run-over" id="run-over" hidden>
+                <img class="run-o-logo" src="assets/run/btth-logo.webp" width="540" height="428" alt="Back to the Hits">
+                <span class="run-o-line" id="run-o-line"></span>
+                <span class="mono run-o-stats"><b id="run-o-recs">0</b> CDs · <b id="run-o-dist">0 m</b> · Rekord <b id="run-o-best">0</b></span>
+                <span class="run-o-cta">Mach ein Screenshot von deinem Highscore und zeig ihn am 14.11. beim&nbsp;DJ&#8209;Pult.<br>Die ersten 10 kriegen eine Überraschung.</span>
+                <div class="run-btns">
+                  <button type="button" class="b95" id="run-again">Nochmal</button>
+                  <button type="button" class="b95" id="run-change">Change DJ</button>
+                </div>
+                              </div>
+              <div class="run-pause" hidden><b>Pause</b><span>Tippen zum Weiterspielen</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="run-ticket" aria-label="Party-Info">
+        <span class="mono run-t-k">Live dabei sein</span>
+        <img class="run-t-logo" src="assets/run/btth-logo.webp" width="540" height="428" alt="Back to the Hits">
+        <span class="run-t-l">Sa, 14. November · 17–22 Uhr</span>
+        <span class="run-t-l">Frau Gerolds Garten, Zürich</span>
+        <span class="run-t-l">Eintritt frei</span>
+        <span class="mono run-t-s">No Bueno × DJ Bowgli × Marvellous Stranger</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ SNAKE ============ -->
 <section class="snake-sec" id="snake" aria-labelledby="snake-title">
@@ -161,6 +219,7 @@
 </div>
 
 <script src="script.js"></script>
+<script src="garten-run.js"></script>
 <script src="snake.js"></script>
 <script src="nosweeper.js"></script>
 </body>
