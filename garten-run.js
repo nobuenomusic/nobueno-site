@@ -690,4 +690,32 @@
   /* Figurenwahl vorhervorheben */
   var pre = document.querySelector('[data-run-char="' + char + '"]'); if (pre) pre.classList.add('is-last');
   draw();
+
+  /* Vollbild: echtes Fullscreen, wo der Browser es kann; sonst Vollfenster */
+  (function () {
+    var fb = document.getElementById('run-full'), win = document.querySelector('.run-win');
+    if (!fb || !win) return;
+    function nativeOn() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+    function setFull(on) {
+      win.classList.toggle('is-full', on);
+      document.documentElement.classList.toggle('run-lock', on);
+      fb.textContent = on ? 'Schliessen' : 'Vollbild';
+      fb.setAttribute('aria-pressed', on ? 'true' : 'false');
+      try {
+        if (on) {
+          var rq = win.requestFullscreen || win.webkitRequestFullscreen;
+          if (rq) { var p = rq.call(win); if (p && p.catch) p.catch(function () {}); }
+        } else if (nativeOn()) {
+          var ex = document.exitFullscreen || document.webkitExitFullscreen;
+          if (ex) { var q = ex.call(document); if (q && q.catch) q.catch(function () {}); }
+        }
+      } catch (e) {}
+      var cv = document.getElementById('run-cv'); if (cv) { try { cv.focus({ preventScroll: true }); } catch (e) {} }
+    }
+    fb.addEventListener('click', function () { setFull(!win.classList.contains('is-full')); });
+    function sync() { if (!nativeOn() && win.classList.contains('is-full') && win.__nat) { win.__nat = false; setFull(false); } else if (nativeOn()) { win.__nat = true; } }
+    document.addEventListener('fullscreenchange', sync);
+    document.addEventListener('webkitfullscreenchange', sync);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && win.classList.contains('is-full')) setFull(false); });
+  })();
 })();

@@ -976,3 +976,13 @@ html, body { overflow-x: clip; max-width: 100%; }
 
 /* v62w: Spiel-Leiste nur mit Ton-Button (Titel steht schon oben) */
 .run-win .snake-hud { justify-content: flex-end; }
+
+/* v65: Vollbild-Knopf */
+.snake-hud { gap: .5rem; }
+.run-win .snake-hud { justify-content: flex-end; }
+html.run-lock, html.run-lock body { overflow: hidden; }
+.run-win.is-full { position: fixed; inset: 0; z-index: 9999; width: auto; max-width: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: #111; box-shadow: none; }
+.run-win.is-full .w95-bar { display: none; }
+.run-win.is-full .w95-body { flex: 1; display: flex; flex-direction: column; align-items: center; margin: 0; padding: max(6px, env(safe-area-inset-top)) 6px max(6px, env(safe-area-inset-bottom)); background: #111; border: 0; min-height: 0; }
+.run-win.is-full .snake-hud { align-self: stretch; padding: 0 0 6px; }
+.run-win.is-full .run-board { flex: none; margin: auto; width: min(100%, calc((100dvh - 64px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) * .75)); }
